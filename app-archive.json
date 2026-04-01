@@ -1,0 +1,28 @@
+{
+  "appName": "EC2 Control",
+  "description": "AWS EC2 Instance Manager",
+  "items": [
+    {
+      "version": "1.0.1",
+      "shortVersion": 8,
+      "changes": [
+        { "type": "feat", "message": "Release v1.0.1" }
+      ],
+      "date": "2026-04-01",
+      "mandatory": false,
+      "url": "https://github.com/RenTheProgrammer/ec2_control-releases/releases/download/v1.0.1",
+      "platform": "windows"
+    },
+    {
+      "version": "1.0.1",
+      "shortVersion": 8,
+      "changes": [
+        { "type": "feat", "message": "Release v1.0.1" }
+      ],
+      "date": "2026-04-01",
+      "mandatory": false,
+      "url": "https://github.com/RenTheProgrammer/ec2_control-releases/releases/download/v1.0.1",
+      "platform": "linux"
+    }
+  ]
+}
