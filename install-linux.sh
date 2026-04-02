@@ -30,7 +30,7 @@ mkdir -p "$INSTALL_DIR" "$BIN_DIR" "$DESKTOP_DIR"
 
 # Extract
 echo "→ Extracting..."
-tar xzf "$ARCHIVE" -C "$INSTALL_DIR"
+tar xzf "$ARCHIVE" --strip-components=1 -C "$INSTALL_DIR"
 echo "  ✓ Extracted to $INSTALL_DIR"
 
 # Make executable
