@@ -12,11 +12,18 @@ echo "  EC2 Control — Linux Installer"
 echo "══════════════════════════════════════"
 echo ""
 
-# Find the tar.gz in the current directory
-ARCHIVE=$(ls -1 ec2_control-*-x64.tar.gz 2>/dev/null | head -1)
+# Find the tar.gz in the current directory (prefer linux bundle, fall back to arch)
+ARCHIVE=$(ls -1 ec2_control-linux-x64.tar.gz 2>/dev/null | head -1)
+ARCH_ARCHIVE=""
+if [ -z "$ARCHIVE" ]; then
+  ARCHIVE=$(ls -1 ec2_control-arch-x64.tar.gz 2>/dev/null | head -1)
+  if [ -n "$ARCHIVE" ]; then
+    ARCH_ARCHIVE=1
+  fi
+fi
 
 if [ -z "$ARCHIVE" ]; then
-  echo "❌ No ec2_control-*-x64.tar.gz found in the current directory."
+  echo "❌ No ec2_control-{linux,arch}-x64.tar.gz found in the current directory."
   echo "   Download it from: https://github.com/RenTheProgrammer/ec2_control-releases/releases"
   exit 1
 fi
@@ -30,7 +37,16 @@ mkdir -p "$INSTALL_DIR" "$BIN_DIR" "$DESKTOP_DIR"
 
 # Extract
 echo "→ Extracting..."
-tar xzf "$ARCHIVE" --strip-components=1 -C "$INSTALL_DIR"
+if [ -n "$ARCH_ARCHIVE" ]; then
+  # Arch archive stores the bundle under usr/lib/ec2_control/
+  TMPDIR=$(mktemp -d)
+  tar xzf "$ARCHIVE" -C "$TMPDIR"
+  cp -r "$TMPDIR/usr/lib/$APP_NAME/"* "$INSTALL_DIR/"
+  rm -rf "$TMPDIR"
+else
+  # Ubuntu archive is a flat bundle
+  tar xzf "$ARCHIVE" -C "$INSTALL_DIR"
+fi
 echo "  ✓ Extracted to $INSTALL_DIR"
 
 # Make executable
