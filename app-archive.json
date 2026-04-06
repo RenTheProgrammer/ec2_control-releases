@@ -3,25 +3,25 @@
   "description": "AWS EC2 Instance Manager",
   "items": [
     {
-      "version": "1.0.1",
-      "shortVersion": 8,
+      "version": "1.0.2",
+      "shortVersion": 10,
       "changes": [
-        { "type": "feat", "message": "Release v1.0.1" }
+        { "type": "feat", "message": "Release v1.0.2" }
       ],
-      "date": "2026-04-01",
+      "date": "2026-04-06",
       "mandatory": false,
-      "url": "https://github.com/RenTheProgrammer/ec2_control-releases/releases/download/v1.0.1",
+      "url": "https://github.com/RenTheProgrammer/ec2_control-releases/releases/download/v1.0.2",
       "platform": "windows"
     },
     {
-      "version": "1.0.1",
-      "shortVersion": 8,
+      "version": "1.0.2",
+      "shortVersion": 10,
       "changes": [
-        { "type": "feat", "message": "Release v1.0.1" }
+        { "type": "feat", "message": "Release v1.0.2" }
       ],
-      "date": "2026-04-01",
+      "date": "2026-04-06",
       "mandatory": false,
-      "url": "https://github.com/RenTheProgrammer/ec2_control-releases/releases/download/v1.0.1",
+      "url": "https://github.com/RenTheProgrammer/ec2_control-releases/releases/download/v1.0.2",
       "platform": "linux"
     }
   ]
